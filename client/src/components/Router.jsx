@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import RegisterForm from "./RegisterForm";
 import Home from "./Home";
+import AddStation from "./AddStation";
 
 const Router = () => {
   const [token, setToken] = useState(null);
@@ -14,6 +15,7 @@ const Router = () => {
     <Routes>
       <Route path="/" element={<Home token={token} setToken={setToken} />} />
       <Route path="/register" element={<RegisterForm token={token} setToken={setToken} />} />
+      <Route path="/addStation" element={<AddStation token={token} />} />
     </Routes>
   );
 };

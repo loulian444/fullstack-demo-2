@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Stations = ({ token }) => {
+  const navigate = useNavigate();
   const [stations, setStations] = useState([]);
 
   useEffect(() => {
@@ -37,6 +39,7 @@ const Stations = ({ token }) => {
       {stations.map((station) => {
         return formatStation(station);
       })}
+      <button onClick={() => navigate("/addStation")}>Add Station</button>
     </section>
   );
 };
