@@ -31,11 +31,11 @@ const Trains = ({ token }) => {
   };
 
   return (
-    <>
+    <section className="info">
       {trains.map((t) => {
         return formatTrain(t);
       })}
-    </>
+    </section>
   );
 };
 

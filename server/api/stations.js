@@ -1,10 +1,11 @@
 const router = require("express").Router();
+const { requireUser } = require("./utils");
 
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 //Returns all the stations
-router.get("/", async (req, res) => {
+router.get("/", requireUser, async (req, res) => {
   try {
     const results = await prisma.station.findMany();
     res.send(results);
@@ -14,7 +15,7 @@ router.get("/", async (req, res) => {
 });
 
 //Returns a station with specified id
-router.get("/:id", async (req, res) => {
+router.get("/:id", requireUser, async (req, res) => {
   try {
     const result = await prisma.station.findUnique({
       where: { id: Number(req.params.id) },
@@ -27,7 +28,7 @@ router.get("/:id", async (req, res) => {
 });
 
 //Creates a new station
-router.post("/", async (req, res) => {
+router.post("/", requireUser, async (req, res) => {
   try {
     const result = await prisma.station.create({
       data: req.body,
@@ -44,7 +45,7 @@ router.post("/", async (req, res) => {
 });
 
 //Updates the station with specified id
-router.put("/:id", async (req, res) => {
+router.put("/:id", requireUser, async (req, res) => {
   try {
     const result = await prisma.station.update({
       where: { id: Number(req.params.id) },
@@ -62,7 +63,7 @@ router.put("/:id", async (req, res) => {
 });
 
 //Deletes a station
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", requireUser, async (req, res) => {
   try {
     const result = await prisma.station.delete({
       where: { id: Number(req.params.id) },

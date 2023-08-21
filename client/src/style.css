@@ -1,0 +1,11 @@
+body {
+  background-color: bisque;
+}
+
+#infoSection {
+  display: flex;
+}
+
+.info{
+  margin: 10px;
+}

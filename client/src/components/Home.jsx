@@ -1,5 +1,5 @@
-import Trains from "./Trains";
 import AuthForm from "./AuthForm";
+import ShowInfo from "./ShowInfo";
 
 const Home = ({ token, setToken }) => {
 
@@ -10,7 +10,7 @@ const Home = ({ token, setToken }) => {
 
       {token ? <button onClick={() => setToken(false)}>Sign Out</button> : ""}
 
-      {token ? <Trains token={token} /> : <AuthForm setToken={setToken} />}
+      {token ? <ShowInfo token={token} /> : <AuthForm setToken={setToken} />}
     </>
   );
 };
