@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const AuthForm = ({ setToken }) => {
   const [alert, setAlert] = useState("");
@@ -49,6 +50,8 @@ const AuthForm = ({ setToken }) => {
         </label>
         <button type="submit">Submit</button>
       </form>
+
+      <Link to={"/register"}>Not a user? Register</Link>
     </>
   );
 };

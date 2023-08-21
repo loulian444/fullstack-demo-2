@@ -1,19 +1,12 @@
-import { useState } from "react";
-import Trains from "./components/Trains";
-import AuthForm from "./components/AuthForm";
+import Router from "./components/Router";
+
 const App = () => {
-  const [token, setToken] = useState(false);
 
   return (
     <>
-      <h1>REACT TRAIN APP</h1>
-      <p>Choo Choo!</p>
-
-      {token ? <button onClick={() => setToken(false)}>Sign Out</button> : ""}
-
-      {token ? <Trains token={token} /> : <AuthForm setToken={setToken} />}
+      <Router />
     </>
   );
-}
+};
 
 export default App;
